@@ -406,7 +406,5 @@ streamlit run app/streamlit_app.py
 
 B.Tech Artificial Intelligence & Data Science
 
-GitHub:
-https://github.com/HARSHIT-max07
 
 ---
