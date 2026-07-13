@@ -1,0 +1,17 @@
+fastapi
+uvicorn
+streamlit
+requests
+
+langchain
+langchain-community
+langchain-text-splitters
+
+qdrant-client
+
+ollama
+
+pypdf
+
+python-multipart
+prometheus-client

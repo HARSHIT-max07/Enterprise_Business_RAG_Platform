@@ -1,0 +1,52 @@
+services:
+
+  api:
+    build: .
+    container_name: enterprise-rag-api
+
+    command: uvicorn app.api:app --host 0.0.0.0 --port 8000
+
+    ports:
+      - "8000:8000"
+
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+  streamlit:
+    build: .
+    container_name: enterprise-rag-ui
+
+    command: streamlit run app/streamlit_app.py --server.address 0.0.0.0
+
+    ports:
+      - "8501:8501"
+
+    depends_on:
+      - api
+
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+  prometheus:
+    image: prom/prometheus
+    container_name: enterprise-rag-prometheus
+
+    ports:
+      - "9090:9090"
+
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+
+    depends_on:
+      - api
+
+  grafana:
+    image: grafana/grafana
+
+    container_name: enterprise-rag-grafana
+
+    ports:
+      - "3000:3000"
+
+    depends_on:
+      - prometheus  

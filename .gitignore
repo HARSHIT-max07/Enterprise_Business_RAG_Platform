@@ -1,0 +1,33 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual Environment
+venv/
+
+# Environment Variables
+.env
+
+# Logs
+*.log
+logs/
+
+# Qdrant
+.qdrant/
+qdrant_storage/
+
+# Streamlit
+.streamlit/secrets.toml
+
+# Data Files
+data/raw/
+data/temp/
+
+# OS Files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/settings.json
